@@ -2,7 +2,7 @@
 Create spritesheet and view its animations. Flip and resize images. Built with "Lazarus" ( https://www.lazarus-ide.org/ ) and "Castle Game Engine" ( https://castle-engine.io/ ).
 Tested on Windows 10 64bit, Lazarus Ver. 1.8.4, FPC Ver. 3.0.4.
 
-With this application you can create spritesheets for <strong>Castle Game Engine</strong> (or other programs that use this format).<br />
+With this application you can create spritesheets for <strong>Castle Game Engine</strong> (or other programs that use this format) directly from Lazarus without using the command line.<br />
 Castle Game Engine is required to compile because some of its features are used.<br />
 To create spritesheets combine_image_into_sprite_sheet (attached to this repository) is used. You can find the code in the CGE examples folder (as command line).<br />
 <br />
