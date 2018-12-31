@@ -1,0 +1,882 @@
+object MainForm: TMainForm
+  Left = 543
+  Height = 650
+  Top = 120
+  Width = 800
+  Caption = 'SpriteSheet Utility'
+  ClientHeight = 650
+  ClientWidth = 800
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '1.8.4.0'
+  object PnlTop: TPanel
+    Left = 0
+    Height = 10
+    Top = 0
+    Width = 800
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+  end
+  object PnlRight: TPanel
+    Left = 430
+    Height = 640
+    Top = 10
+    Width = 370
+    Align = alRight
+    BevelOuter = bvNone
+    ClientHeight = 640
+    ClientWidth = 370
+    TabOrder = 1
+    object GBCreateSpriteSheet: TGroupBox
+      Left = 12
+      Height = 288
+      Top = 0
+      Width = 343
+      Caption = 'Create spritesheet'
+      ClientHeight = 268
+      ClientWidth = 339
+      TabOrder = 0
+      object BtnSelectImage: TBitBtn
+        Left = 8
+        Height = 28
+        Top = 5
+        Width = 152
+        Caption = 'Browse image URL'
+        Enabled = False
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          000000000000000000020E0E0C421918159E0302022000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000010101012C33322BDF59564EFF2A29256200000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          000100000022292722AE393833FF8E8B81BF2726230300000000000000000000
+          0000000000000000000000000002000000070000000D0000000D000000080000
+          001712110F792F2E28FC89857CEE6F6C641D0000000000000000000000000000
+          0000000000010000000C0000001A00000020000000240000002A000000330202
+          014B484742E168655EFE8C887E56000000000000000000000000000000000000
+          00010000000B020201101413112D302E297842413A9C3E3D36982625206E2625
+          21656A6864FF908D87A300000000000000000000000000000000000000000000
+          00030A09080C3F3E37928F8F85FCC0C0B5FFCFCFC4FFCECEC3FFBCBCB1FF8988
+          7FFE7C7A73C60505052000000001000000000000000000000000000000001312
+          1002504E4697BCBCB2FFDCD0ADFFE7CB79FFEFD170FFEFD276FFE6CD86FFDBD2
+          B5FFAEAEA3FE2F2E286400000000000000000000000000000000000000003A39
+          3326ADADA3FDD8BE8CFFE9B434FFEFC032FFF1C72CFFF0C52DFFEDBD39FFE8B5
+          48FFD7C49CFF9C9C91EC3F3F360B00000000000000000000000000000000706F
+          666CD5CCB9FFD68D28FFDB9428FFE2A632FFE7B138FFE6AF37FFE0A130FFD78D
+          26FFD38E35FFCFCBBDFF6363574C000000000000000000000000000000009A9A
+          8F7DCEAE89FFD07A24FFDB8F35FFE6A544FFEBB24EFFEAB14DFFE4A241FFD98A
+          31FFCD7522FFC7B399FF8F8F835E00000000000000000000000000000000A0A0
+          9560C8AC8EFFD58432FFE4A147FFEFC05DFFF5D76EFFF4D46CFFEEBA5AFFE29C
+          44FFCF7D2EFFBFB19DFFA4A49943000000000000000000000000000000008686
+          7D1AD1CBBCFAC58946FFEBB560FFF5D67BFFFBF090FFFAED8EFFF3D177FFE9B0
+          5DFFB7834BFFCECDC1F08383790A000000000000000000000000000000000000
+          0000D2D2C687C0AE97FFCDA66BFFF1D891FFF9EAA2FFF8E9A1FFEED28DFFC39F
+          6AFFBDB4A4FFCECEC16F00000000000000000000000000000000000000000000
+          000078787002D5D5CA8EC5BDAFFDB1A38AFFB1A787FFB0A687FFAFA48FFFC4C1
+          B6FAD2D2C57B0000000000000000000000000000000000000000000000000000
+          00000000000000000000B6B6AB2CD6D6CB86DADAD0B0D9D9CFAED4D4C980B4B4
+          A823000000000000000000000000000000000000000000000000
+        }
+        OnClick = BtnSelectImageClick
+        TabOrder = 0
+      end
+      object BtnExecute: TBitBtn
+        Left = 256
+        Height = 28
+        Top = 67
+        Width = 75
+        Caption = 'Execute'
+        Enabled = False
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000000000000000
+          0000000000000000000000000000000000003C3C3C6A535353FE535353FE3E3E
+          3E6B000000000000000000000000000000000000000000000000000000000000
+          00001717170C383838600F0F0F01000000004040407F858585FF8D8D8DFF4343
+          4380000000000D0D0D01383838601919190C0000000000000000000000001919
+          190C525252C2565656FF5151519D1A1A1A035454549EA8A8A8FFB2B2B2FF5757
+          579C191919025959599C5D5D5DFF515151C21919190C00000000000000003D3D
+          3D5F5C5C5CFF7F7F7FFF8D8D8DFF7E7E7EF49F9F9FFFB6B6B6FFBCBCBCFFAAAA
+          AAFF8B8B8BF1BDBDBDFFBFBFBFFF5D5D5DFF3A3A3A6000000000000000001111
+          11015B5B5B9D9C9C9CFFB6B6B6FFC1C1C1FFC6C6C6FFC2C5CAFFCDCFD6FFD9D9
+          DAFFC9C9C9FFCBCBCBFFC0C0C0FF5C5C5C9C1111110100000000000000000000
+          00001E1E1E02969696F3D7D7D7FFA5A8AEFF394C7BFF123077FF14398DFF4969
+          AEFFD2D6E0FFCBCBCBFF8C8C8CF11C1C1C0200000000000000005353536B5757
+          577F6E6E6EA0CCCCCCFFC8C8C8FF2F4578FF153A8DFF2D4E97FE2A50A4FE194F
+          C2FF496BB3FFDBDBDBFFADADADFF5757579C4141417F3C3C3C6A777777FEB5B5
+          B5FFE6E6E6FFF3F3F3FF9B9EA4FF14398AFF3D60ACFE777778334B4C4D322A51
+          A7FE143B93FFCCCFD6FFBFBFBFFFB7B7B7FF929292FF535353FE797979FEBFBF
+          BFFFF1F1F1FFFAFAFAFFA4A7ADFF1642A2FF4672CFFE9FA0A1356D6D6E332D4E
+          98FE123179FFBDC0C5FFB8B8B8FFACACACFF898989FF535353FE5A5A5A6B6767
+          67808888889FE6E6E6FFDCDCDCFF385CA7FF1B57D6FF456EC5FE3C5DA8FE1538
+          89FF364976FFC0C0C0FF9D9D9DFF5656569C434343803F3F3F6B000000000000
+          00002B2B2B03C4C4C4F4FEFEFEFFBFC3CCFF36569BFF153C93FF133684FF2D42
+          73FF9FA2A7FFBBBBBBFF7C7C7CF11B1B1B020000000000000000000000001313
+          13018080809DEDEDEDFFFEFEFEFFFEFEFEFFD9D9D9FF9EA1A7FF97999FFFC2C2
+          C2FFCFCFCFFFAFAFAFFF8B8B8BFF5151519D0F0F0F0100000000000000004848
+          48607D7D7DFFE1E1E1FFEDEDEDFFC4C4C4F3E5E5E5FFF7F7F7FFEDEDEDFFC5C5
+          C5FE909090F1969696FF7D7D7DFF565656FF3A3A3A6000000000000000001F1F
+          1F0C686868C27D7D7DFF8383839D2F2F2F02868686A0EBEBEBFFDDDDDDFF6D6D
+          6D9C202020025B5B5B9C5C5C5CFF535353C21B1B1B0C00000000000000000000
+          00001F1F1F0C4C4C4C6017171701000000006262627FBABABAFFADADADFF5A5A
+          5A800000000011111101404040601D1D1D0C0000000000000000000000000000
+          0000000000000000000000000000000000005757576A787878FE767676FE5757
+          576B000000000000000000000000000000000000000000000000
+        }
+        OnClick = BtnExecuteClick
+        TabOrder = 1
+      end
+      object LblPadding: TLabel
+        Left = 8
+        Height = 15
+        Top = 48
+        Width = 44
+        Caption = 'Padding'
+        ParentColor = False
+      end
+      object EdPadding: TEdit
+        Left = 64
+        Height = 23
+        Top = 40
+        Width = 36
+        Enabled = False
+        NumbersOnly = True
+        TabOrder = 2
+        Text = '0'
+      end
+      object UDPadding: TUpDown
+        Left = 100
+        Height = 23
+        Top = 40
+        Width = 17
+        Associate = EdPadding
+        Enabled = False
+        Min = 0
+        Position = 0
+        TabOrder = 3
+        Wrap = False
+      end
+      object LblColumns: TLabel
+        Left = 144
+        Height = 15
+        Top = 48
+        Width = 48
+        Caption = 'Columns'
+        ParentColor = False
+      end
+      object EdNumCols: TEdit
+        Left = 204
+        Height = 23
+        Top = 40
+        Width = 32
+        Enabled = False
+        NumbersOnly = True
+        TabOrder = 4
+        Text = '0'
+      end
+      object UDNumCols: TUpDown
+        Left = 236
+        Height = 23
+        Top = 40
+        Width = 17
+        Associate = EdNumCols
+        Enabled = False
+        Min = 0
+        Position = 0
+        TabOrder = 5
+        Wrap = False
+      end
+      object LblSpriteSheetName: TLabel
+        Left = 8
+        Height = 15
+        Top = 78
+        Width = 91
+        Caption = 'Spritesheet name'
+        ParentColor = False
+      end
+      object EdSpriteSheetName: TEdit
+        Left = 112
+        Height = 23
+        Top = 70
+        Width = 124
+        Enabled = False
+        TabOrder = 6
+      end
+      object CBCreateSpriteSheet: TCheckBox
+        Left = 115
+        Height = 19
+        Top = -19
+        Width = 20
+        OnChange = CBCreateSpriteSheetChange
+        TabOrder = 7
+      end
+      object GroupBox1: TGroupBox
+        Left = 8
+        Height = 129
+        Top = 104
+        Width = 323
+        Caption = 'Flip / Resize'
+        ClientHeight = 109
+        ClientWidth = 319
+        TabOrder = 8
+        object BtnFlipHorz: TBitBtn
+          Left = 8
+          Height = 28
+          Top = 8
+          Width = 75
+          Caption = 'Horz'
+          Enabled = False
+          Glyph.Data = {
+            36040000424D3604000000000000360000002800000010000000100000000100
+            2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00086A0B40076C
+            0931FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF0005580200FFFFFF00FFFFFF0004630500076D0932086A0B41108510A01692
+            16E500570027FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000354
+            0200FFFFFF00FFFFFF000257010001590129169216E6108510A00784049607AA
+            07FF0B8D09DF05580224FFFFFF00FFFFFF00FFFFFF00FFFFFF00004B0000FFFF
+            FF00FFFFFF0004560200055A02260B8D09E107AA07FF07840496078A059602C1
+            02FF03A703FF0A8608D903540221FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00024F0100035602230A8608DB03A703FF02C102FF078A0596058C039602CE
+            02FF00AD00FF029002FF097A07D6004B001CFFFFFF00FFFFFF00FFFFFF00004E
+            0000004D001E097A07D8029002FF00AD00FF02CE02FF058C03960486029601C1
+            01FF00AA00FF008E00FF027402FF076A06D200540017FFFFFF0030792F000155
+            0119076A06D4027402FF008E00FF00AA00FF01C101FF04860296037E029601AC
+            01FF019D01FF038903FF036F03FF005400FF216B20C973AE71106FAB6D11216B
+            20CB005400FF036F03FF038903FF019D01FF01AC01FF037E02960B7A0B962DAF
+            2DFF2AA52AFF2D992DFF328D32FF327C32FF2B732BC82E762C0F2E762C102B73
+            2BC8327C32FF328D32FF2D992DFF2AA52AFF2DAF2DFF0B7A0B960D730D963DAA
+            3DFF3DA53DFF45A145FF459445FF1E6E1ED200270017FFFFFF00000000000027
+            00171E6E1ED2459445FF45A145FF3DA53DFF3DAA3DFF0D730D96116D119654AE
+            54FF56AC56FF59A759FF257325D50033001CFFFFFF00FFFFFF00FFFFFF000062
+            00000033001C257325D559A759FF56AC56FF54AE54FF116D1196166816966EB8
+            6EFF6FB76FFF2D762DD900330021FFFFFF00FFFFFF00FFFFFF0000330000FFFF
+            FF0000150000003300212D762DD96FB76FFF6EB86EFF166816961E681E9684C5
+            84FF3A803ADE00170024FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000033
+            0000FFFFFF0000000000001700243A803ADE84C584FF1E681E96296E29A05494
+            54E500110027FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF0000170000FFFFFF000000000001120127549454E5296E29A02565253F1E61
+            1E30FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF001E611E001E611E302565253FFFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+          }
+          OnClick = BtnFlipHorzClick
+          TabOrder = 0
+        end
+        object BtnFlipVert: TBitBtn
+          Left = 124
+          Height = 28
+          Top = 8
+          Width = 75
+          Caption = 'Vert'
+          Enabled = False
+          Glyph.Data = {
+            36040000424D3604000000000000360000002800000010000000100000000100
+            2000000000000004000064000000640000000000000000000000FFFFFF00086A
+            0B42108510A107840497078A0597058C039704860297037E02970B7A0B970D73
+            0D97116D1197176917971F691F97296E29A12565253FFFFFFF00FFFFFF00076E
+            0933169216E607AA07FF02C102FF02CE02FF01C101FF01AC01FF2DAF2DFF3DAA
+            3DFF54AE54FF6EB86EFF84C584FF549454E41E611E30FFFFFF00FFFFFF00FFFF
+            FF00015901290B8D09E103A703FF00AD00FF00AA00FF019D01FF2AA52AFF3DA5
+            3DFF56AC56FF6FB76FFF397F39DC000C0025FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00055A02260A8608DB029002FF008E00FF038903FF2D992DFF45A1
+            45FF59A759FF2C752CD700120022FFFFFF00FFFFFF00FFFFFF00FFFFFF00055A
+            0200FFFFFF00FFFFFF0003560223097A07D8027402FF036F03FF328D32FF4594
+            45FF257325D30030001FFFFFFF0000170000FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF0003560200FFFFFF00FFFFFF00004D001E076A06D4005400FF327C32FF1E6E
+            1ED0002F001AFFFFFF0000330000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00004D0000FFFFFF00FFFFFF0002550219216B20CB2B732BC60022
+            0015FFFFFF0000330000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF006FAB6D006FAB6D112E762C10FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF002E762C002E762C106FAB6D11FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00002F0000FFFFFF00FFFFFF00002200152B732BC6216B20C90154
+            0117FFFFFF00004D0000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF0000300000FFFFFF00FFFFFF00002F001A1E6E1ED0327C32FF005400FF076A
+            06D2004B001CFFFFFF0003560200FFFFFF00FFFFFF00FFFFFF00FFFFFF000012
+            0000FFFFFF00FFFFFF000030001F257325D3459445FF328D32FF036F03FF0274
+            02FF097A07D603540221FFFFFF00055A0200FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00001200222C752CD759A759FF45A145FF2D992DFF038903FF008E
+            00FF029002FF0A8608D905580224FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00000B0025397F39DC6FB76FFF56AC56FF3DA53DFF2AA52AFF019D01FF00AA
+            00FF00AD00FF03A703FF0B8D09DF00570027FFFFFF00FFFFFF00FFFFFF001F62
+            1F31549454E484C584FF6EB86EFF54AE54FF3DAA3DFF2DAF2DFF01AC01FF01C1
+            01FF02CE02FF02C102FF07AA07FF169216E5076E0933FFFFFF00FFFFFF002565
+            2540296E29A2206A2098186A1898116D11980D730D980B7A0B98037E02980486
+            0298058C0398078A059807840498108510A2086A0B42FFFFFF00
+          }
+          OnClick = BtnFlipVertClick
+          TabOrder = 1
+        end
+        object BtnFlipBoth: TBitBtn
+          Left = 236
+          Height = 28
+          Top = 8
+          Width = 75
+          Caption = 'Both'
+          Enabled = False
+          Glyph.Data = {
+            36040000424D3604000000000000360000002800000010000000100000000100
+            2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+            FF000B700D4D0F870FAC058E039D0598049F0493029F0386029F1081109F1579
+            159F1D731D9F2E782E9E327732AC27672749FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF000F741034129112D505AE05FF00CA01FF01C501FF02AD02FF2CAD2CFF42AA
+            42FF66B666FF7BBE7BFF5A985AD225662532FFFFFF00FFFFFF002668264A2363
+            2332FFFFFF00025400220A8C08D7029F02FF00A300FF029902FF2AA12AFF4AAA
+            4AFF61AD61FF3D813DD20000001EFFFFFF000E7310340B700E4D327732AD5A98
+            5AD0002C001BFFFFFF000D55091F097E06D3028001FF037D03FF339633FF4B9C
+            4BFF2F792FCF0000001DFFFFFF000D5C0A1F129212D20F880EAD2F792F9F7BBF
+            7BFF3C7F3CD00019001BFFFFFF000E60091E066C05CF015D01FF317F31FF2673
+            26CC002C001CFFFFFF0010670B1E0A8C08D405AE05FF068E039F1D741D9F65B7
+            65FF61AD61FF2F782FD10022001BFFFFFF000855071B196419C7297029C30041
+            0018FFFFFF000C64091E097E07D4029F02FF01CA01FF0597049F147914A042AA
+            42FF4AAA4AFF4B9C4BFF267426CE0031001BFFFFFF00549152192C732B18FFFF
+            FF00005D001E076B06D2018002FF00A300FF01C501FF049202A0108110A02CAD
+            2CFF2AA02AFF339633FF317F31FF2A702AC52D732C19FFFFFF00FFFFFF005191
+            4F1B196418C9035D03FF047D04FF029902FF02AD02FF038602A0038602A002AD
+            02FF029902FF047D04FF035D03FF196418C951914F1BFFFFFF00FFFFFF002D73
+            2C192A702AC5317F31FF339633FF2AA02AFF2CAD2CFF108110A0049202A001C5
+            01FF00A300FF018002FF076B06D2005D001EFFFFFF002C732B1854915218FFFF
+            FF000031001B267426CE4B9C4BFF4AAA4AFF42AA42FF147914A00597049F01CA
+            01FF029F02FF097E07D40C64091EFFFFFF0000410018297029C3196419C60954
+            081AFFFFFF000023001B2F782FD161AD61FF65B765FF1D741D9F068E039F05AE
+            05FF0A8C08D410670B1EFFFFFF00002C001C267326CC317F31FF015D01FF066C
+            05CE0E5F091DFFFFFF000019001C3C7F3CD07BBF7BFF2F792F9F0F880EAD1292
+            12D20D5C0A1FFFFFFF000000001D2F792FCF4B9C4BFF339633FF037D03FF0280
+            01FF097E06D10D53091EFFFFFF00002C001B5A985AD0327732AD0B700E4D0E73
+            1034FFFFFF000000001E3D813DD261AD61FF4AAA4AFF2AA12AFF029902FF00A3
+            00FF029F02FF0A8C08D402530020FFFFFF00236323322668264AFFFFFF00FFFF
+            FF00256725335A985AD27BBE7BFF66B666FF42AA42FF2CAD2CFF02AD02FF01C5
+            01FF00CA01FF05AE05FF129212D30F741034FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF002767274A327732AD2E792E9E1D741DA0157915A0108110A0038602A00492
+            02A0059804A0058E039E0F870FAD0B700D4DFFFFFF00FFFFFF00
+          }
+          OnClick = BtnFlipBothClick
+          TabOrder = 2
+        end
+        object LblResizeW: TLabel
+          Left = 8
+          Height = 15
+          Top = 52
+          Width = 25
+          Caption = 'Horz'
+          ParentColor = False
+        end
+        object EdResizeW: TEdit
+          Left = 47
+          Height = 23
+          Top = 44
+          Width = 36
+          NumbersOnly = True
+          OnChange = EdResizeWChange
+          TabOrder = 3
+          Text = '1'
+        end
+        object LblResizeH: TLabel
+          Left = 128
+          Height = 15
+          Top = 52
+          Width = 20
+          Caption = 'Vert'
+          ParentColor = False
+        end
+        object EdResizeH: TEdit
+          Left = 163
+          Height = 23
+          Top = 44
+          Width = 36
+          NumbersOnly = True
+          OnChange = EdResizeHChange
+          TabOrder = 4
+          Text = '1'
+        end
+        object CBResizeKeepProp: TCheckBox
+          Left = 240
+          Height = 19
+          Top = 48
+          Width = 71
+          Caption = 'Constrain'
+          OnChange = CBResizeKeepPropChange
+          TabOrder = 5
+        end
+        object LblResizeInterpolationMode: TLabel
+          Left = 8
+          Height = 15
+          Top = 84
+          Width = 102
+          Caption = 'Interpolation mode'
+          ParentColor = False
+        end
+        object CMBResizeInterpolationMode: TComboBox
+          Left = 124
+          Height = 23
+          Top = 76
+          Width = 91
+          ItemHeight = 15
+          ItemIndex = 1
+          Items.Strings = (
+            'riNearest'
+            'riBilinear'
+            'riMitchel'
+            'riBlackman'
+            'riBlackmanSinc'
+            'riBlackmanBessel'
+            'riGaussian'
+            'riHermite'
+            'riLanczos'
+            'riQuadratic'
+            'riCubic'
+            'riCatrom'
+            'riHanning'
+            'riHamming'
+          )
+          OnChange = CMBResizeInterpolationModeChange
+          TabOrder = 6
+          Text = 'riBilinear'
+        end
+        object BtnSaveFlip: TBitBtn
+          Left = 236
+          Height = 28
+          Top = 74
+          Width = 75
+          Anchors = [akTop, akRight]
+          Caption = 'Save'
+          Enabled = False
+          Glyph.Data = {
+            36040000424D3604000000000000360000002800000010000000100000000100
+            2000000000000004000064000000640000000000000000000000000000000000
+            00120303034A1F1F1F527B7B7B628A8A8A699090906E8F8F8F708D8D8D6E8B8B
+            8B697676765F181718500404054F0404054F040404410000000700000000100F
+            116B2A292DFD302F33FF9D9D9DFFA2A2A2FF9D9D9DFF929292FF8D8D8DFF8A8A
+            8AFF878787FF242327FF252428FF2B2A2EFF2C2B2FFE0101020B000000003231
+            34F9323135FF373639FFB0B0B0FF242326FF212122FFA9A9A9FFA2A2A2FF9D9D
+            9DFF969696FF2D2C2FFF2C2B2FFF333236FF353438FF00000000000000003938
+            3BFF39383BFF3B3A3EFFBABABBFF313033FF2B2B2DFFB9B9B9FFB4B4B4FFAFAF
+            AFFFA9A9A9FF373639FF353437FF3A393CFF3E3D41FF00000000000000003F3E
+            42FF3F3E42FF434245FFBCBCBCFF3E3D3FFF373638FFC4C4C4FFC3C3C3FFBFBF
+            BFFFBABABAFF3D3C3FFF3A393BFF3F3E41FF414043FF00000000000000004645
+            48FF464548FF48474AFFBFBFBFFFCBCBCBFFCBCBCBFFCACACAFFCACACAFFCBCB
+            CBFFC7C7C7FF38373AFF353537FF464548FF48474AFF00000000000000004B4A
+            4DFF4B4A4DFF4B4A4DFF4B4A4DFF4D4C4FFF504F52FF515053FF525154FF5251
+            54FF504F52FF4E4D50FF4C4B4DFF4B4A4DFF4D4C4FFF00000000000000004E4D
+            50FF4E4D50FF4E4D50FF4E4D50FF4E4D50FF4E4D50FF4F4E50FF4F4E50FF4F4E
+            50FF4E4D50FF4E4D50FF4E4D50FF4E4D50FF515053FF00000000000000005251
+            53FF525153FF9F9993FFC1B8AFFFC4BBB2FFC6BDB4FFC7BEB5FFC7BEB4FFC5BC
+            B2FFC3B9B0FFBFB6ABFF9E9791FF525153FF555456FF00000000000000005554
+            56FF555456FFC3BCB5FFE7DBCDFFE7DBCEFFE7DACDFFE6DACDFFE6DACCFFE6D9
+            CBFFE5D8CBFFE5D8C9FFC1B9B1FF555456FF58575AFF00000000000000005958
+            5AFF59585AFFC7C1BBFFF3EDE7FFF3EDE7FFF3EDE7FFF2ECE6FFF2ECE5FFF1EB
+            E4FFF1EAE2FFF0E8E0FFC5BFB8FF59585AFF5C5B5DFF00000000000000005C5B
+            5DFF5C5B5DFFCBC7C2FFF0E9E1FFF0E9E1FFF0E8E1FFF0E8E0FFEFE8DFFFEFE7
+            DEFFEEE6DDFFEDE5DCFFC9C4BFFF5C5B5DFF605F61FF0000000000000000605F
+            61FF605F61FFCECAC7FFFEFDFCFFFEFDFCFFFEFDFCFFFEFDFCFFFDFDFCFFFDFC
+            FBFFFCFBFAFFFBF9F8FFCCC8C4FF605F61FF646365FF00000000000000005E5D
+            5EFF5E5D5FFFCDC8C4FFF2EAE3FFF2EAE3FFF2EAE3FFF2EAE3FFF3EBE4FFF3EC
+            E5FFF3EDE6FFF4EEE8FFCECBC8FF636264FF676668FF00000000000000006362
+            63F5636264FFC6C0BBFFEEE7E3FFEFE8E4FFEFE9E5FFF0EAE6FFF1EBE7FFF1EC
+            E8FFF0ECEAFFF0EDEBFFC7C3C0FF6A696AFF706F71F500000000000000000000
+            0000000000000000000000000000000000000000000000000000000000000000
+            0000000000000000000000000000000000000000000000000000
+          }
+          OnClick = BtnSaveFlipClick
+          TabOrder = 7
+        end
+        object UDResizeW: TUpDown
+          Left = 83
+          Height = 23
+          Top = 44
+          Width = 17
+          Associate = EdResizeW
+          Max = 2000
+          Min = 1
+          Position = 1
+          TabOrder = 8
+          Wrap = False
+        end
+        object UDResizeH: TUpDown
+          Left = 199
+          Height = 23
+          Top = 44
+          Width = 17
+          Associate = EdResizeH
+          Max = 2000
+          Min = 1
+          Position = 1
+          TabOrder = 9
+          Wrap = False
+        end
+      end
+    end
+    object GBPreviewSpriteSheet: TGroupBox
+      Left = 12
+      Height = 164
+      Top = 258
+      Width = 343
+      Caption = 'Preview spritesheet'
+      ClientHeight = 144
+      ClientWidth = 339
+      TabOrder = 1
+      object BtnSelectSpriteSheet: TBitBtn
+        Left = 8
+        Height = 28
+        Top = 8
+        Width = 152
+        Caption = 'Browse spritesheet URL'
+        Enabled = False
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          000000000000000000020E0E0C421918159E0302022000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000010101012C33322BDF59564EFF2A29256200000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          000100000022292722AE393833FF8E8B81BF2726230300000000000000000000
+          0000000000000000000000000002000000070000000D0000000D000000080000
+          001712110F792F2E28FC89857CEE6F6C641D0000000000000000000000000000
+          0000000000010000000C0000001A00000020000000240000002A000000330202
+          014B484742E168655EFE8C887E56000000000000000000000000000000000000
+          00010000000B020201101413112D302E297842413A9C3E3D36982625206E2625
+          21656A6864FF908D87A300000000000000000000000000000000000000000000
+          00030A09080C3F3E37928F8F85FCC0C0B5FFCFCFC4FFCECEC3FFBCBCB1FF8988
+          7FFE7C7A73C60505052000000001000000000000000000000000000000001312
+          1002504E4697BCBCB2FFDCD0ADFFE7CB79FFEFD170FFEFD276FFE6CD86FFDBD2
+          B5FFAEAEA3FE2F2E286400000000000000000000000000000000000000003A39
+          3326ADADA3FDD8BE8CFFE9B434FFEFC032FFF1C72CFFF0C52DFFEDBD39FFE8B5
+          48FFD7C49CFF9C9C91EC3F3F360B00000000000000000000000000000000706F
+          666CD5CCB9FFD68D28FFDB9428FFE2A632FFE7B138FFE6AF37FFE0A130FFD78D
+          26FFD38E35FFCFCBBDFF6363574C000000000000000000000000000000009A9A
+          8F7DCEAE89FFD07A24FFDB8F35FFE6A544FFEBB24EFFEAB14DFFE4A241FFD98A
+          31FFCD7522FFC7B399FF8F8F835E00000000000000000000000000000000A0A0
+          9560C8AC8EFFD58432FFE4A147FFEFC05DFFF5D76EFFF4D46CFFEEBA5AFFE29C
+          44FFCF7D2EFFBFB19DFFA4A49943000000000000000000000000000000008686
+          7D1AD1CBBCFAC58946FFEBB560FFF5D67BFFFBF090FFFAED8EFFF3D177FFE9B0
+          5DFFB7834BFFCECDC1F08383790A000000000000000000000000000000000000
+          0000D2D2C687C0AE97FFCDA66BFFF1D891FFF9EAA2FFF8E9A1FFEED28DFFC39F
+          6AFFBDB4A4FFCECEC16F00000000000000000000000000000000000000000000
+          000078787002D5D5CA8EC5BDAFFDB1A38AFFB1A787FFB0A687FFAFA48FFFC4C1
+          B6FAD2D2C57B0000000000000000000000000000000000000000000000000000
+          00000000000000000000B6B6AB2CD6D6CB86DADAD0B0D9D9CFAED4D4C980B4B4
+          A823000000000000000000000000000000000000000000000000
+        }
+        OnClick = BtnSelectSpriteSheetClick
+        TabOrder = 0
+      end
+      object LblPreviewFramePerSec: TLabel
+        Left = 8
+        Height = 15
+        Top = 116
+        Width = 73
+        Caption = 'Frame per sec'
+        ParentColor = False
+      end
+      object EdPreviewFramePerSec: TEdit
+        Left = 104
+        Height = 23
+        Top = 108
+        Width = 36
+        Enabled = False
+        NumbersOnly = True
+        OnChange = EdPreviewFramePerSecChange
+        TabOrder = 1
+        Text = '0'
+      end
+      object UDPreviewFramePerSec: TUpDown
+        Left = 140
+        Height = 23
+        Top = 108
+        Width = 17
+        Associate = EdPreviewFramePerSec
+        Enabled = False
+        Min = 0
+        Position = 0
+        TabOrder = 2
+        Wrap = False
+      end
+      object BtnPreview: TButton
+        Left = 256
+        Height = 28
+        Top = 108
+        Width = 75
+        Caption = 'Start'
+        Enabled = False
+        OnClick = BtnPreviewClick
+        TabOrder = 3
+      end
+      object LblPreviewFrameCount: TLabel
+        Left = 8
+        Height = 15
+        Top = 51
+        Width = 67
+        Caption = 'Frame count'
+        ParentColor = False
+      end
+      object EdPreviewFrameCount: TEdit
+        Left = 104
+        Height = 23
+        Top = 44
+        Width = 36
+        Enabled = False
+        NumbersOnly = True
+        OnChange = EdPreviewFrameCountChange
+        TabOrder = 4
+        Text = '1'
+      end
+      object LblPreviewNumCols: TLabel
+        Left = 219
+        Height = 15
+        Top = 51
+        Width = 48
+        Caption = 'Columns'
+        ParentColor = False
+      end
+      object EdPreviewNumCols: TEdit
+        Left = 278
+        Height = 23
+        Top = 43
+        Width = 36
+        Enabled = False
+        NumbersOnly = True
+        OnChange = EdPreviewNumColsChange
+        TabOrder = 5
+        Text = '1'
+      end
+      object LclPreviewHorzSizeFrame: TLabel
+        Left = 8
+        Height = 15
+        Top = 84
+        Width = 81
+        Caption = 'Horz size frame'
+        ParentColor = False
+      end
+      object EdPreviewHorzSizeFrame: TEdit
+        Left = 104
+        Height = 23
+        Top = 76
+        Width = 36
+        Enabled = False
+        NumbersOnly = True
+        TabOrder = 6
+        Text = '0'
+      end
+      object LblPreviewVertSizeFrame: TLabel
+        Left = 191
+        Height = 15
+        Top = 84
+        Width = 76
+        Caption = 'Vert size frame'
+        ParentColor = False
+      end
+      object EdPreviewVertSizeFrame: TEdit
+        Left = 278
+        Height = 23
+        Top = 76
+        Width = 36
+        Enabled = False
+        NumbersOnly = True
+        TabOrder = 7
+        Text = '0'
+      end
+      object UDPreviewFrameCount: TUpDown
+        Left = 140
+        Height = 23
+        Top = 44
+        Width = 17
+        Associate = EdPreviewFrameCount
+        Enabled = False
+        Min = 1
+        Position = 1
+        TabOrder = 8
+        Wrap = False
+      end
+      object UDPreviewNumCols: TUpDown
+        Left = 314
+        Height = 23
+        Top = 43
+        Width = 17
+        Associate = EdPreviewNumCols
+        Enabled = False
+        Min = 1
+        Position = 1
+        TabOrder = 9
+        Wrap = False
+      end
+      object UDPreviewHorzSizeFrame: TUpDown
+        Left = 140
+        Height = 23
+        Top = 76
+        Width = 17
+        Associate = EdPreviewHorzSizeFrame
+        Enabled = False
+        Max = 1000
+        Min = 0
+        Position = 0
+        TabOrder = 10
+        Wrap = False
+      end
+      object UDPreviewVertSizeFrame: TUpDown
+        Left = 314
+        Height = 23
+        Top = 76
+        Width = 17
+        Associate = EdPreviewVertSizeFrame
+        Enabled = False
+        Max = 1000
+        Min = 0
+        Position = 0
+        TabOrder = 11
+        Wrap = False
+      end
+      object CBPreviewSpriteSheet: TCheckBox
+        Left = 115
+        Height = 19
+        Top = -19
+        Width = 20
+        OnChange = CBPreviewSpriteSheetChange
+        TabOrder = 12
+      end
+    end
+    object ImgListView: TShellListView
+      Left = 12
+      Height = 160
+      Top = 448
+      Width = 342
+      Color = clDefault
+      Enabled = False
+      HideSelection = False
+      ReadOnly = True
+      RowSelect = True
+      SortColumn = 0
+      SortType = stText
+      TabOrder = 2
+      OnSelectItem = ImgListViewSelectItem
+      ObjectTypes = [otNonFolders]
+    end
+    object Label1: TLabel
+      Left = 12
+      Height = 15
+      Top = 428
+      Width = 70
+      Caption = 'Item selected'
+      ParentColor = False
+    end
+    object ItemSel: TLabel
+      Left = 92
+      Height = 15
+      Top = 428
+      Width = 35
+      Caption = '(none)'
+      Font.Color = clMaroon
+      ParentColor = False
+      ParentFont = False
+    end
+    object LblNumItems: TLabel
+      Left = 12
+      Height = 15
+      Top = 612
+      Width = 96
+      Caption = 'Number of items: '
+      ParentColor = False
+    end
+    object LblItemsNum: TLabel
+      Left = 116
+      Height = 15
+      Top = 612
+      Width = 6
+      Caption = '0'
+      ParentColor = False
+    end
+  end
+  object PnlImages: TPanel
+    Left = 15
+    Height = 640
+    Top = 10
+    Width = 415
+    Align = alClient
+    BevelOuter = bvNone
+    Caption = 'PnlImages'
+    ClientHeight = 640
+    ClientWidth = 415
+    TabOrder = 2
+    object ScrollBoxImgs: TScrollBox
+      Left = 0
+      Height = 105
+      Top = 0
+      Width = 415
+      HorzScrollBar.Tracking = True
+      Align = alTop
+      ClientHeight = 101
+      ClientWidth = 411
+      TabOrder = 0
+      object ImgsSquare: TShape
+        Left = 0
+        Height = 80
+        Top = 0
+        Width = 80
+        Brush.Style = bsClear
+        Pen.Color = clGreen
+        Pen.Width = 4
+        Shape = stSquare
+        Visible = False
+      end
+    end
+    object ScrollBoxMainImage: TScrollBox
+      Left = 0
+      Height = 520
+      Top = 105
+      Width = 415
+      HorzScrollBar.Page = 75
+      VertScrollBar.Page = 50
+      Align = alClient
+      ClientHeight = 516
+      ClientWidth = 411
+      TabOrder = 1
+      object CastleControl1: TCastleControl
+        Left = 0
+        Height = 516
+        Top = 0
+        Width = 411
+        Align = alClient
+        TabOrder = 0
+        OnRender = CastleControl1Render
+        OnUpdate = CastleControl1Update
+      end
+    end
+    object PnlFlip: TPanel
+      Left = 0
+      Height = 15
+      Top = 625
+      Width = 415
+      Align = alBottom
+      BevelOuter = bvNone
+      TabOrder = 2
+    end
+  end
+  object PnlLeft: TPanel
+    Left = 0
+    Height = 640
+    Top = 10
+    Width = 15
+    Align = alLeft
+    BevelOuter = bvNone
+    TabOrder = 3
+  end
+  object SelectFirstImg: TCastleOpenImageDialog
+    Filter = 'All Images|*.png;*.bmp;*.ppm;*.jpg;*.jpeg;*.jpe;*.gif;*.tga;*.tpic;*.xpm;*.psd;*.pcx;*.pnm;*.pgm;*.pbm;*.dds;*.ktx;*.rgbe;*.pic;*.hdr;*.ipl;*.tiff;*.tif;*.sgi;*.jp2;*.exr|PNG image (*.png)|*.png|Windows BMP image (*.bmp)|*.bmp|PPM image (*.ppm)|*.ppm|JPEG image (*.jpg, *.jpeg, *.jpe)|*.jpg;*.jpeg;*.jpe|GIF image (*.gif)|*.gif|TarGA image (*.tga, *.tpic)|*.tga;*.tpic|XPM image (*.xpm)|*.xpm|PSD image (*.psd)|*.psd|ZSoft PCX image (*.pcx)|*.pcx|PNM image (*.pnm, *.pgm, *.pbm)|*.pnm;*.pgm;*.pbm|DDS image (*.dds)|*.dds|Khronos KTX image (*.ktx)|*.ktx|RGBE (RGB+Exponent) image (*.rgbe, *.pic, *.hdr)|*.rgbe;*.pic;*.hdr|IPLab image (*.ipl)|*.ipl|TIFF image (*.tiff, *.tif)|*.tiff;*.tif|SGI image (*.sgi)|*.sgi|JPEG 2000 image (*.jp2)|*.jp2|EXR image (*.exr)|*.exr|'
+    FilterIndex = 0
+    left = 264
+    top = 17
+  end
+  object SelectSpriteSheet: TCastleOpenImageDialog
+    Filter = 'All Images|*.png;*.bmp;*.ppm;*.jpg;*.jpeg;*.jpe;*.gif;*.tga;*.tpic;*.xpm;*.psd;*.pcx;*.pnm;*.pgm;*.pbm;*.dds;*.ktx;*.rgbe;*.pic;*.hdr;*.ipl;*.tiff;*.tif;*.sgi;*.jp2;*.exr|PNG image (*.png)|*.png|Windows BMP image (*.bmp)|*.bmp|PPM image (*.ppm)|*.ppm|JPEG image (*.jpg, *.jpeg, *.jpe)|*.jpg;*.jpeg;*.jpe|GIF image (*.gif)|*.gif|TarGA image (*.tga, *.tpic)|*.tga;*.tpic|XPM image (*.xpm)|*.xpm|PSD image (*.psd)|*.psd|ZSoft PCX image (*.pcx)|*.pcx|PNM image (*.pnm, *.pgm, *.pbm)|*.pnm;*.pgm;*.pbm|DDS image (*.dds)|*.dds|Khronos KTX image (*.ktx)|*.ktx|RGBE (RGB+Exponent) image (*.rgbe, *.pic, *.hdr)|*.rgbe;*.pic;*.hdr|IPLab image (*.ipl)|*.ipl|TIFF image (*.tiff, *.tif)|*.tiff;*.tif|SGI image (*.sgi)|*.sgi|JPEG 2000 image (*.jp2)|*.jp2|EXR image (*.exr)|*.exr|'
+    FilterIndex = 0
+    left = 360
+    top = 17
+  end
+end
