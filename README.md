@@ -6,11 +6,11 @@ With this application you can create spritesheets for <strong>Castle Game Engine
 Castle Game Engine is required to compile because some of its features are used.<br />
 To create spritesheets combine_image_into_sprite_sheet (attached to this repository) is used. You can find the code in the CGE examples folder (as command line).<br />
 <br />
-Program has two sections, <em>Create</em> spritesheet and <em>Preview spritesheet</em>.<br />
+Program has two sections, <em>Create spritesheet</em> and <em>Preview spritesheet</em>.<br />
 <br />
 The first one includes a small utility that allows you to flip and resize individual images and then save them.<br />
 To create a spritesheet prepare a folder with the images required (can be anywhere on the disk, does not need to be in the application folder).<br />
-As described in the CGE Guide, image names must end with an underscore followed by a numerical index (e.g. image_1.png, image_2.png). It is good practice to use zeros to complete the number if the images are more than 9 (... image_09, image_10 ...).<br />
+As described in the CGE Guide ( https://castle-engine.io/manual_intro.php ), image names must end with an underscore followed by a numerical index (e.g. image_1.png, image_2.png). It is good practice to use zeros to complete the number if the images are more than 9 (... image_09, image_10 ...).<br />
 Open any image in the series then define Padding and Columns.
 <ul>
 <li>Padding, will be the number of numbers after the underscore (image_09.png will have Padding = 2).</li>
