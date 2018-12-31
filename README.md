@@ -23,7 +23,7 @@ The resize function allows you to change the interpolation mode using values inc
 <br />
 With <em>Preview spritesheet</em> you can view the sprite animation.<br />
 Open the spritesheet (then select it in the ShellView).<br />
-Set the required values:
+Set the required values:<br />
 <ul>  
 <li>Frame count, number of images</li>
 <li>Columns, number of frames in a row in the image</li>
