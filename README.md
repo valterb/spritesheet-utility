@@ -1,5 +1,5 @@
 # spritesheet-utility
-Create spritesheet and view animations. Flip and resize images. Built with "Lazarus" ( https://www.lazarus-ide.org/ ) and "Castle Game Engine" ( https://castle-engine.io/ ).
+Create spritesheet and view its animations. Flip and resize images. Built with "Lazarus" ( https://www.lazarus-ide.org/ ) and "Castle Game Engine" ( https://castle-engine.io/ ).
 Tested on Windows 10 64bit, Seven 64bit, Vista 32bit.
 
 With this application you can create spritesheets for <strong>Castle Game Engine</strong> (or other programs that use this format).<br />
