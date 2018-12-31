@@ -21,7 +21,7 @@ If all settings are correct a folder will be created in the source folder with t
 As mentioned you can edit each image individually (select the desired image in the ShellView) and then save it, useful if you have drawn sprites in one direction and you want to create a spritesheet with the turned sprites (using FlipHorizontal, FlipVertical ( https://castle-engine.io/apidoc/html/CastleImages.TCastleImage.html ). Also in this case a folder will be created automatically in the source folder.<br />
 The resize function allows you to change the interpolation mode using values included in the Castle Game Engine (https://castle-engine.io/apidoc/html/CastleImages.html#TResizeInterpolation ). If you select Constrain the image will maintain its proportions.<br />
 <br />
-With <em>Preview spritesheet</em> you can view the sprite animation.<br />
+With <em>Preview spritesheet</em> you can view the sprite animation ( https://castle-engine.io/apidoc/html/CastleGLImages.TSprite.html#CreateFrameSize ).<br />
 Open the spritesheet (then select it in the ShellView).<br />
 Set the required values:<br />
 <br />
