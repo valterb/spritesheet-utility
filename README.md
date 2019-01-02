@@ -36,4 +36,5 @@ Set the required values:<br />
 By changing Frame count and Columns, values for Horz size frame and Vert size frame will be automatically proposed. You can still change them manually.<br />
 Click Start to see the animation.<br />
 You can change frames per sec even while the animation is active.<br />
+Hint: to view the whole spritesheet you can leave the default values and click on Start.<br />
 <br />
