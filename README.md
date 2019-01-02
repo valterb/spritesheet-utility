@@ -38,6 +38,6 @@ Click Start to see the animation.<br />
 You can change frames per sec even while the animation is active.<br />
 Hint: to view the whole spritesheet you can leave the default values and click on Start.<br />
 <br />
-Let me know of any bugs<br />
+Let me know of any bugs.<br />
 <br />
 
