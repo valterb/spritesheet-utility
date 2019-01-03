@@ -525,6 +525,11 @@ begin
   end;
 end;
 
+{
+Code taken from https://github.com/castle-engine/castle-engine/blob/master/
+                        examples/sprite_sheets/combine_images_into_sprite_sheet/
+                        combine_images_into_sprite_sheet.lpr
+}
 procedure TMainForm.MakeSpriteSheet(InputUrl, OutputUrl: String; Columns: Cardinal);
 var
   InputVideo: TVideo;
