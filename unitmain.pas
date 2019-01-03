@@ -27,7 +27,8 @@ uses
   StdCtrls, ShellCtrls, ComCtrls, ExtCtrls, Menus, Buttons, ShellApi,
   CastleScene, CastleControls, CastleFilesUtils, CastleKeysMouse, CastleLog,
   CastleUtils, CastleUIControls, CastleGLImages, CastleGLUtils, CastleTimeUtils,
-  CastleControl, CastleDialogs, CastleControlsImages, CastleImages;
+  CastleControl, CastleDialogs, CastleControlsImages, CastleImages,
+  CastleParameters, CastleVideos, CastleVectors;
 
 const
   ResizeInterpol: Array [0..13] of TResizeInterpolation = (riNearest,
@@ -152,6 +153,7 @@ type
     procedure EnableEditImage;
     procedure EnableSpriteSheetPreview;
     procedure LoadImages(FirstImage: String);
+    procedure MakeSpriteSheet(InputUrl, OutputUrl: String; Columns: Cardinal);
     procedure NilAndFree;
     procedure ResetCreateSpriteSheetData;
     procedure ResetPreviewSpriteSheetData;
@@ -465,7 +467,7 @@ end;
 procedure TMainForm.LoadImages(FirstImage: String);
 var
   Info : TSearchRec;
-  Count, i, x, y: integer;
+  Count, i, x, y, Padding: integer;
   ShowImage: string;
 begin
   ResetShowImage;
@@ -477,6 +479,8 @@ begin
   ShowImage := ExtractFileName(Copy(FirstImage, 1, i-1));
   i := LastDelimiter('_', ShowImage);
   ImgName := copy(ShowImage, 1, i-1);
+  Padding := Length(ShowImage) - Length(ImgName) -1;
+  EdPadding.Text := IntToStr(Padding);
   ImgExt := ExtractFileExt(FirstImage);
   EdSpriteSheetName.Text := 'SpriteSheet' + ImgName;
   Count := 0;
@@ -521,13 +525,43 @@ begin
   end;
 end;
 
+procedure TMainForm.MakeSpriteSheet(InputUrl, OutputUrl: String; Columns: Cardinal);
+var
+  InputVideo: TVideo;
+  OutputImage: TRGBAlphaImage;
+  FinalColumns, Rows, I, X, Y: Cardinal;
+begin
+  try
+    InputVideo := TVideo.Create;
+      InputVideo.LoadFromFile(InputUrl);
+    FinalColumns := Min(Columns, InputVideo.Count);
+    Rows := CeilDiv(InputVideo.Count, Columns);
+    OutputImage := TRGBAlphaImage.Create(FinalColumns * InputVideo.Width,
+                                         Rows * InputVideo.Height);
+    OutputImage.Clear(Vector4Byte(0, 0, 0, 0)); // transparent black
+    for I := 0 to InputVideo.Count - 1 do
+    begin
+      X := (I mod Columns) * InputVideo.Width;
+      Y := OutputImage.Height - (I div Columns + 1) * InputVideo.Height;
+      InputVideo.Items[I].DrawTo(OutputImage, X, Y, dmOverwrite);
+    end;
+    SaveImage(OutputImage, OutputUrl);
+  finally
+    if Assigned (InputVideo) then
+      FreeAndNil(InputVideo);
+    if Assigned (OutputImage) then
+      FreeAndNil(OutputImage);
+  end;
+end;
+
 procedure TMainForm.BtnExecuteClick(Sender: TObject);
 var
   SavePath, SaveDirSpriteSheet, SaveFileSpriteSheet, SaveSpriteSheetPath, CmdString: string;
-  i: Integer;
+  i, Cols: Integer;
   SavedFile: Boolean;
 begin
-  if (EdNumCols.Text = '0') then
+  Cols := StrToInt(EdNumCols.Text);
+  if (Cols = 0) then
   begin
     ShowMessage('Columns can not be zero');
     Exit;
@@ -539,21 +573,12 @@ begin
   end;
   SavePath := IncludeTrailingPathDelimiter(ImgListView.Root);
   SaveDirSpriteSheet := SavePath + 'SpriteSheet';
-  SaveFileSpriteSheet := SavePath + IncludeTrailingPathDelimiter('SpriteSheet');
-  SaveSpriteSheetPath := SaveFileSpriteSheet + EdSpriteSheetName.Text + '.png';
+  SaveFileSpriteSheet := SavePath + ImgName + '_@counter(' + EdPadding.Text + ')' + ImgExt;
+  SaveSpriteSheetPath := SavePath + IncludeTrailingPathDelimiter('SpriteSheet') + EdSpriteSheetName.Text + '.png';
   SavedFile := False;
-  try
-    if not DirectoryExists(SaveDirSpriteSheet) then
+  if not DirectoryExists(SaveDirSpriteSheet) then
       CreateDir(SaveDirSpriteSheet);
-    CmdString := SavePath + ImgName + '_@counter(' + EdPadding.Text + ')' + ImgExt + ' ' +
-                 SaveSpriteSheetPath +
-                 ' ' +
-                 EdNumCols.Text;
-    ShellExecute(0, nil, 'combine_images_into_sprite_sheet.exe', PChar(CmdString), nil, SW_HIDE);
-  except
-    on E: Exception do
-      ShowMessage('Error: ' + E.ClassName + #13#10 + E.Message);
-  end;
+  MakeSpriteSheet(SaveFileSpriteSheet, SaveSpriteSheetPath, Cols);
   for I := 1 to 20 do
   begin
     Sleep(100);
