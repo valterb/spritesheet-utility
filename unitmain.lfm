@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 439
+  Left = 443
   Height = 650
-  Top = 146
+  Top = 229
   Width = 800
   Caption = 'SpriteSheet Utility'
   ClientHeight = 650
