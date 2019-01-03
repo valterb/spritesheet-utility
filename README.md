@@ -14,7 +14,7 @@ To create a spritesheet prepare a folder with the images required (can be anywhe
 As described in the CGE Guide ( https://castle-engine.io/manual_intro.php ), image names must end with an underscore followed by a numerical index (e.g. image_1.png, image_2.png). It is good practice to use zeros to complete the number if the images are more than 9 (... image_09, image_10 ...).<br />
 Open any image in the series then define Padding and Columns.
 <ul>
-<li>Padding, will be the number of numbers after the underscore (image_09.png will have Padding = 2).</li>
+<li>Padding, will be the number of numbers after the underscore (image_09.png will have Padding = 2). This value is automatically proposed when the file is opened</li>
 <li>Columns, will be the number of columns you want to get in the spritesheet (number of frames in a row in the image).</li>
 </ul>  
 Give a name to the spritesheet (a default name is proposed) then click on Execute.<br />
